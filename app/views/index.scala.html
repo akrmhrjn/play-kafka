@@ -1,0 +1,8 @@
+@(message: String)
+
+@main("Welcome to Play") {
+    <form action = "@routes.Application.registerUrl()" method="post">
+        <input type="text" name="url" placeholder="Enter URL"/>
+        <button>Register</button>
+    </form>
+}
