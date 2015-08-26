@@ -30,7 +30,7 @@ public class Application extends Controller {
         RegisterUrl registerURL = Form.form(RegisterUrl.class).bindFromRequest().get();
         registerURL.save();
         Utils.sendToKafka("Inserted", "crawler", Form.form(RegisterUrl.class).bindFromRequest().get().url);
-        return redirect(routes.Application.getUrl());
+        return redirect(routes.Application.index());
     }
 
     public Result getUrl() {
@@ -46,7 +46,7 @@ public class Application extends Controller {
         Notification notification = Form.form(Notification.class).bindFromRequest().get();
         notification.save();
         Utils.sendToKafka("degendra", "notification", Form.form(Notification.class).bindFromRequest().get().msg);
-        return redirect(routes.Application.getNotification());
+        return redirect(routes.Application.notification());
     }
 
     public Result getNotification() {
