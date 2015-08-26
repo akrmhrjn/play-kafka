@@ -22,10 +22,12 @@ public class ProducerThread implements Runnable, Config {
     public void run() {
 
         SimpleDateFormat sdf = new SimpleDateFormat();
-        KeyedMessage<String, String> message = new KeyedMessage<String, String>(topic,Thread.currentThread().getName() + " " + sdf.format(new Date()) + ": " + msg);
+        KeyedMessage<String, String> message = new KeyedMessage<String, String>(topic,msg);
         producer.send(message);
 
         System.out.println("Sending>>" + Thread.currentThread().getName() + " " + " " + sdf.format(new Date()) + ": " + msg);
+
+        producer.close();
 
     }
 }

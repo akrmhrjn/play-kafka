@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.concurrent.Callable;
 
 
 /**
@@ -26,14 +27,14 @@ public class ConsumerClass implements Runnable, Config {
     ConsumerConnector consumerConnector;
     String TOPIC_INSERT = "Inserted";
 
-    ConsumerClass(){
-
+    public ConsumerClass(){
         Properties properties = new Properties();
         properties.put("zookeeper.connect",ZOOKEEPER_CONNECT);
         properties.put("group.id",GROUP_ID);
         ConsumerConfig consumerConfig = new ConsumerConfig(properties);
         consumerConnector = Consumer.createJavaConsumerConnector(consumerConfig);
     }
+
 
     public static void main(String[] argv) throws UnsupportedEncodingException {
         Thread consumer = new Thread(new ConsumerClass());
@@ -50,9 +51,9 @@ public class ConsumerClass implements Runnable, Config {
         ConsumerIterator<byte[], byte[]> it = stream.iterator();
         while(it.hasNext()) {
             System.out.println("Receiving>>" + new String(it.next().message()));
-
         }
     }
+
     static
     {
         Logger rootLogger = Logger.getRootLogger();

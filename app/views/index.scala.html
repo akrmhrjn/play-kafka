@@ -1,8 +1,18 @@
 @(message: String)
 
-@main("Welcome to Play") {
-    <form action = "@routes.Application.registerUrl()" method="post">
+@main(message) {
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript" src='@routes.Assets.versioned("js/index.js")'></script>
+
+
+<center>
+    <h2>Kafka Go Test</h2>
+
+    <form action="@routes.Application.registerUrl()" method="post">
         <input type="text" name="url" placeholder="Enter URL"/>
         <button>Register</button>
     </form>
+</center>
+
+<ul id="print"></ul>
 }

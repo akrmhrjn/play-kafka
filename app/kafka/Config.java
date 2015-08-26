@@ -5,7 +5,7 @@ package kafka;
  */
 public interface Config {
 
-    String META_BROKER_LIST = "128.199.96.159:9092";
+    String META_BROKER_LIST = "128.199.96.159:9092, 103.253.146.215:9092";
     String SERIALIZER_CLASS = "kafka.serializer.StringEncoder";
     String ZOOKEEPER_CONNECT = "128.199.96.159:2181";
     String GROUP_ID = "test-group";

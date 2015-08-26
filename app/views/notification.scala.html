@@ -1,0 +1,14 @@
+@(message: String)
+
+@main(message) {
+
+<center>
+    <h2>Kafka Notification Test</h2>
+
+    <form action="@routes.Application.notificationMsg()" method="post">
+        <input type="text" name="msg" placeholder="Enter Message..."/>
+        <button>Send</button>
+    </form>
+</center>
+
+}

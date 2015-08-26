@@ -7,5 +7,9 @@ import java.io.Serializable;
  */
 public class Payload implements Serializable{
 
-    String url;
+    String URL;
+    String name;
+    String email;
+    String msg;
+    String msg_type;
 }
